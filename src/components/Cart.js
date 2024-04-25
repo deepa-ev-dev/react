@@ -1,0 +1,33 @@
+import { useDispatch, useSelector } from "react-redux";
+import ItemList from "./ItemList";
+import { clearCart } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { CART_IMG } from "../utils/constants";
+
+const Cart = () => {
+
+    const cartItems = useSelector(
+        (store) => store.cart.items
+    );
+    console.log(cartItems);
+
+    const dispatch = useDispatch();
+
+    const handleClearCart =() => {
+        dispatch(clearCart());
+    };
+    return (
+        <div className="text-center m-4 p-4">
+            <h1 className="text-2xl font-bold">Cart</h1>
+            <div className="w-6/12 m-auto">
+                <button className="p-2 m-2 bg-black text-white rounded-lg" onClick={handleClearCart}>Clear Cart</button>
+                {cartItems.length === 0 && <div>
+                    <div><img className="p-10 w-30" src={CART_IMG}/></div><p className=" font-bold text-lg text-black">Your cart is empty</p><p>You can go to home page to view more restaurants</p>
+                <button className="p-2 px-4 font-bold my-10 m-2 bg-[#fc8019] text-white"><Link to="/">SEE RESTAURANTS NEAR YOU</Link></button></div>}
+                <ItemList items={cartItems}/></div>
+        </div>
+    );
+};
+
+export default Cart;
