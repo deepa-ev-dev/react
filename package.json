@@ -1,7 +1,7 @@
 {
-  "name": "namaste-react",
+  "name": "food-ordering-app",
   "version": "1.0.0",
-  "description": "This is Namaste React",
+  "description": "This is Food ordering Web App",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",

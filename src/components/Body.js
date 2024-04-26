@@ -78,7 +78,7 @@ const Body = () => {
           <TopRatedRestaurants />
           <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
         <div className="pb-3 px-3 text-2xl font-bold">{title}</div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
+        <div className="grid grid-cols-4 gap-4 justify-center">
           {filteredRestaurant.map((restaurant, index) => (
             <div key={restaurant?.info.id} className="mx-2"> {/* Add margin for gap between images */}
             <Link to={"/restaurants/" + restaurant?.info.id}>
