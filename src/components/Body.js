@@ -17,23 +17,36 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   const fetchData = async () => {
-    setLoading(true);
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-
-    setListOfRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setTitle(json?.data?.cards[2]?.card?.card?.title);
-    setLoading(false);
+    try {
+      setLoading(true); // Set loading state to true before fetching data
+      const response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+  
+      const json = await response.json();
+  
+      // Update state with fetched data
+      setListOfRestaurants(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      );
+      setFilteredRestaurant(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      );
+      setTitle(json?.data?.cards[2]?.card?.card?.title);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // Handle error state
+    } finally {
+      setLoading(false); // Set loading state to false after fetch operation
+    }
   };
+  
 
   const onlineStatus = useOnlineStatus();
 

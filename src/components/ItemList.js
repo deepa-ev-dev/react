@@ -27,7 +27,7 @@ const ItemList = ({items, dummy}) => {
                     : item.card.info.defaultPrice / 100}
                 </span>
               </div>
-              <p className="text-sm">{item.card.info.description}</p>
+              <p className="text-sm pb-4">{item.card.info.description}</p>
             </div>
             <div className="w-3/12 p-4">
                 <div className="absolute">
@@ -39,8 +39,9 @@ const ItemList = ({items, dummy}) => {
               </button>
               
                 </div>
+                {item.card.info.imageId && (
               <img src={CDN_URL + item.card.info.imageId} className="h-28 object-cover aspect-auto rounded-lg w-[156px]" />
-            </div>
+            )}</div>
           </div>
         ))}
       </div>

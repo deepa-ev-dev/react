@@ -11,6 +11,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import Cart from "./components/Cart";
 import appStore from "./utils/appStore";
+import Footer from "./components/Footer";
 
 // chunking
 // code splitting
@@ -36,9 +37,13 @@ const AppLayout = () =>{
     return (
       <Provider store={appStore}>
     <UserContext.Provider value={{loggedInUser: userName}}>
-      <div className="w-[1200px] h-[800px]">
-       <Header/>
+      <div className=" w-[1263px] min-h-screen flex flex-col">
+        <div className="flex-grow">
+        <Header/>
        <Outlet/>
+        </div>
+       
+       <Footer/>
     </div>
     </UserContext.Provider>
     </Provider>
