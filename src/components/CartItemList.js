@@ -43,7 +43,7 @@ const CartItemList = ({ items, dummy }) => {
               
             </div>
             <p className="text-sm pb-4">{item.card.info.description}</p>
-            <div className="absolute">
+            <div>
               <button
                 className="p-2 mx-4 rounded-lg bg-orange-400 text-white shadow-lg"
                 onClick={() => handleDecrementQuantity(item)}
