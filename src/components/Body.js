@@ -22,7 +22,7 @@ const Body = () => {
     try {
       setLoading(true); // Set loading state to true before fetching data
       const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
   
       if (!response.ok) {

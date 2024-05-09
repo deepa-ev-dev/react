@@ -7,7 +7,7 @@ const useMenuCarousel = () => {
     useEffect(() => {
       const fetchImage = async () => {
         try {
-          const data = await fetch(SWIGGY_API);
+          const data = await fetch("https://thingproxy.freeboard.io/fetch/"+SWIGGY_API);
           if (!data.ok) {
             throw new Error("Failed to fetch data");
           }
