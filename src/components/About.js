@@ -14,14 +14,12 @@ class About extends React.Component{
     render(){
         console.log("Parent Render");
         return (
-            <div>
+            <div className="text-center p-10 ">
                 
                 <h1>About</h1>
-                <h2>This is Namaste React Web Series</h2>
+                <h2>*This is swiggy clone web app for learing React*</h2>
     
-                <UserClass name={"1st "} location={"Chennai"} contact={"+91 9080702627"}/>
-                <UserClass name={"2nd "} location={"Chennai"} contact={"+91 9080702627"}/>
-                <UserClass name={"3rd "} location={"Chennai"} contact={"+91 9080702627"}/>
+                <UserClass name={"Deepa EV"} location={"Chennai"} contact={"+91 9080702627"}/>
             </div>
         );
     }

@@ -22,8 +22,8 @@ class UserClass extends React.Component {
         console.log("Child Render");
 
         return(
-            <div className="user-card">
-                   <h2>Name: {name}</h2>
+            <div className="user-card justify-between">
+                   <h2 className="font-bold pt-10">Name: {name}</h2>
                 <h3>Location: {location}</h3>
                 <h4>Contact: {contact}</h4>
             </div>
