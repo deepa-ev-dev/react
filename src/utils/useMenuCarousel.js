@@ -7,7 +7,7 @@ const useMenuCarousel = () => {
     useEffect(() => {
       const fetchImage = async () => {
         try {
-          const data = await fetch("https://corsproxy.io/?"+SWIGGY_API);
+          const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
           if (!data.ok) {
             throw new Error("Failed to fetch data");
           }
