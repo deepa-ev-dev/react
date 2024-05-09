@@ -33,9 +33,6 @@ const Header = () => {
           <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4">
-            <Link to="/grocery">Grocery</Link>
-          </li>
           <li className="px-4 font-bold text-xl">
             <Link to="/cart">Cart ({cartItems.length})</Link>
           </li>
@@ -49,9 +46,9 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
-          <li className="px-4 font-bold">
+          {/*li className="px-4 font-bold">
               {loggedInUser}
-          </li>
+          </li>*/}
         </ul>
       </div>
     </div>
