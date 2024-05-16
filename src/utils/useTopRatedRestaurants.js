@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MOCK_DATA from "../components/mockData/resList.json";
 
 const useTopRatedRestaurants = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -11,16 +12,14 @@ const useTopRatedRestaurants = () => {
 
     const fetchData = async () => {
         try {
-            const data = await fetch(
-                "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-            );
-            const json = await data.json();
-
-            // Optional Chaining
-            const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            setListOfRestaurants(restaurants);
-            setFilteredRestaurant(restaurants);
-            setLoading(false);
+            // Simulating asynchronous behavior with a timeout
+            setTimeout(() => {
+                // Use mock data instead of fetching from an API
+                const restaurants = MOCK_DATA?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+                setListOfRestaurants(restaurants);
+                setFilteredRestaurant(restaurants);
+                setLoading(false);
+            }, 1000); // Simulate 1 second delay
         } catch (error) {
             console.error("Error fetching data:", error);
             setLoading(false);

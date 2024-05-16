@@ -5,6 +5,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import MenuCarousel from "./MenuCarousel";
 import TopRatedRestaurants from "./TopRatedRestaurants";
 import { Link } from "react-router-dom";
+import MOCK_DATA from "../components/mockData/resList.json";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -18,7 +19,29 @@ const Body = () => {
     fetchData();
   }, []);
   
-  const fetchData = async () => {
+  
+  const fetchData = () => {
+    try {
+      setLoading(true); // Set loading state to true before fetching data
+      // Directly use imported JSON data
+      const json = MOCK_DATA;
+  
+      // Update state with fetched data
+      setListOfRestaurants(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []
+      );
+      setFilteredRestaurant(
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []
+      );
+      setTitle(json?.data?.cards[2]?.card?.card?.title || "");
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // Handle error state
+    } finally {
+      setLoading(false); // Set loading state to false after fetch operation
+    }
+  };
+  /*const fetchData = async () => {
     try {
       setLoading(true); // Set loading state to true before fetching data
       const response = await fetch(
@@ -45,7 +68,7 @@ const Body = () => {
     } finally {
       setLoading(false); // Set loading state to false after fetch operation
     }
-  };
+  };*/
   
 
   const onlineStatus = useOnlineStatus();
