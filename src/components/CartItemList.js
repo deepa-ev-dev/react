@@ -27,7 +27,7 @@ const CartItemList = ({ items }) => {
   const handleClearCart = () => {
     dispatch(clearCart());
     // Display order on the way message
-    alert("Order Played Successfully!");
+    alert("Order Placed Successfully!");
   };
 
   const handleCheckout = () => {
