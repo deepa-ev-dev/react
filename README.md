@@ -11,7 +11,7 @@
 - Minification
 - Bundling
 - Compress
--Consisten Hashing
+- Consistent Hashing
 - Code Splitting
 - Differential bundling - support  older browsers
 - Diagonistic
